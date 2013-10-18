@@ -19,7 +19,6 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName('multiple language translationese')
     
-    # dataModel = AnalysisData(analyserList, ["lexical_density", "average_pmi","repititions"]) 
     dataModel = AnalysisData(analyserList, attributes) 
     mainWindow = MainWindow(dataModel)
     mainWindow.update()
