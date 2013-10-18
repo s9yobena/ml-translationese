@@ -42,14 +42,14 @@ class DirAnalyser:
     def __init__(self, _dir):
         self.__dir = _dir
 
-    def analyse(self):
+    def analyse(self, _attributes):
         analyserList = []
         # search for .txt files in __dir 
         for textF in glob.glob(self.__dir+"/*.txt"):
             analyser = TextAnalyser()
             analyser.setFile(textF)
-            analyser.computeAttribute("lexical_density")        
-            analyser.computeAttribute("average_pmi")                    
+            for att in _attributes:
+                analyser.computeAttribute(att)
             analyserList.append(analyser)
         return analyserList
 

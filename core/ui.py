@@ -23,6 +23,8 @@ class MainWindow(QMainWindow):
 
         self.mainLayout.addWidget(self.quitButton)
 
+    def update(self):
+        self.setGeometry(600,600,600,600)        
         
     def close(self):
         self.close

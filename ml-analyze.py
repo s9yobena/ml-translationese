@@ -10,15 +10,19 @@ from core.engine import TextAnalyser, DirAnalyser
 
 def main():
 
+    attributes = ["lexical_density","average_pmi","threshold_pmi"]
+
     analyserList = []
     dirAnalyser = DirAnalyser("text-dir")
-    analyserList = dirAnalyser.analyse()
+    analyserList = dirAnalyser.analyse(attributes)
 
     app = QApplication(sys.argv)
     app.setApplicationName('multiple language translationese')
     
-    dataModel = AnalysisData(analyserList, ["lexical_density", "average_pmi"])
+    # dataModel = AnalysisData(analyserList, ["lexical_density", "average_pmi","repititions"]) 
+    dataModel = AnalysisData(analyserList, attributes) 
     mainWindow = MainWindow(dataModel)
+    mainWindow.update()
     mainWindow.show()
 
     sys.exit(app.exec_())

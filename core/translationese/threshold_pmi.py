@@ -4,7 +4,7 @@ a chunk, and count the (normalized) number of bigrams with PMI above 0.
 """
 
 import math
-import translationese
+from .. import translationese
 
 def quantify(analysis):
     """Quantify threshold PMI"""
