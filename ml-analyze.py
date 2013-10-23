@@ -10,10 +10,11 @@ from core.engine import TextAnalyser, DirAnalyser
 
 def main():
 
-    attributes = ["lexical_density","average_pmi","threshold_pmi"]
+    # attributes = ["lexical_density","average_pmi","threshold_pmi"]
+    attributes = ["lexical_density",]
 
     analyserList = []
-    dirAnalyser = DirAnalyser("text-dir")
+    dirAnalyser = DirAnalyser("text-dir","EN")
     analyserList = dirAnalyser.analyse(attributes)
 
     app = QApplication(sys.argv)
@@ -21,10 +22,10 @@ def main():
     
     dataModel = AnalysisData(analyserList, attributes) 
     mainWindow = MainWindow(dataModel)
-    # mainWindow.update()
-    # mainWindow.show()
+    mainWindow.update()
+    mainWindow.show()
 
-    # sys.exit(app.exec_())
+    sys.exit(app.exec_())
 
 
 if __name__=='__main__':
