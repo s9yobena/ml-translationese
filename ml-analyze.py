@@ -21,10 +21,10 @@ def main():
     
     dataModel = AnalysisData(analyserList, attributes) 
     mainWindow = MainWindow(dataModel)
-    mainWindow.update()
-    mainWindow.show()
+    # mainWindow.update()
+    # mainWindow.show()
 
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
 
 
 if __name__=='__main__':

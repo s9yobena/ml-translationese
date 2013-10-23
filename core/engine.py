@@ -22,6 +22,7 @@ class TextAnalyser:
     def __analyzeFile(self, variant=None):
         self.tmpAnalysisResult = 0
         with translationese.Analysis(filename=self.fileName) as analysis:
+            print "printing analysi", analysis.pos_tags_by_sentence()
             if variant is not None:
                 self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
                     analysis, variant)

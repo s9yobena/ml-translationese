@@ -73,7 +73,7 @@ p35
 I2
 sS','
 I1
-sS'hello'
+sS'your'
 p36
 I1
 sS'youcef'
@@ -82,7 +82,7 @@ I1
 sS'my'
 p38
 I1
-sS'your'
+sS'hello'
 p39
 I1
 sS'?'
@@ -90,7 +90,7 @@ I1
 ssS'tokens'
 p40
 (lp41
-g36
+g39
 aS','
 ag38
 ag34
@@ -101,7 +101,7 @@ ag32
 ag33
 aS'is'
 p42
-ag39
+ag36
 aS'name'
 p43
 aS'?'
