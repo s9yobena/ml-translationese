@@ -6,15 +6,26 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from core.ui import MainWindow, AnalysisData
 from core.engine import TextAnalyser, DirAnalyser
+from optparse import OptionParser
 
 
 def main():
 
+    parser = OptionParser();
+
+    parser.add_option("-d","--text-dir", action="store", type="string", 
+                      dest="textDir", default="text-dir")
+    
+    parser.add_option("-l","--lang", action="store", type="string",
+                      dest="lang", default="EN")
+
+    (options, args) = parser.parse_args()
+
     # attributes = ["lexical_density","average_pmi","threshold_pmi"]
-    attributes = ["lexical_density",]
+    attributes = ["lexical_density"]
 
     analyserList = []
-    dirAnalyser = DirAnalyser("text-dir","EN")
+    dirAnalyser = DirAnalyser(options.textDir, options.lang)
     analyserList = dirAnalyser.analyse(attributes)
 
     app = QApplication(sys.argv)
