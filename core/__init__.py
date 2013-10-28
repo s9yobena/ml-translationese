@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 mlPOS = {}
-mlPOS[("EN","verb","vrb")] = "V"
-mlPOS[("EN","noun","n")] = "N"
-mlPOS[("EN","adjective","adj")] = "J"
-mlPOS[("EN","adverb","adv")] = "R"
+mlPOS[("en","verb","vrb")] = "V"
+mlPOS[("en","noun","n")] = "N"
+mlPOS[("en","adjective","adj")] = "J"
+mlPOS[("en","adverb","adv")] = "R"
 
 posTagSetLang = ""
 

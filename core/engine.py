@@ -1,4 +1,4 @@
-import  translationese
+import  lang.en.translationese as translationese
 import glob
 import core
 
@@ -12,17 +12,21 @@ class TextAnalyser:
         self.analyzerModule = 0
         self.tmpAnalysisResult = 0
         self.analysisResult = {}
+        self._lang = ""
     
     def setFile(self, _fileName):
         self.fileName = _fileName
 
-    def setLanguage(self, _lang):
-        core.posTagSetLang = _lang
+    def setLanguage(self, __lang):
+        core.posTagSetLang = __lang
+        self._lang = __lang
         
     def __setAnalyserModule(self, _analyserModule):
-        self.analyzerModule = __import__('translationese.%s' % _analyserModule,globals=globals(),
+        self.analyzerModule = __import__('lang.{lang}.translationese.{modul}'
+                                         .format(lang = self._lang, 
+                                                 modul = _analyserModule),
+                                         globals=globals(), 
                                          fromlist='translationese')
-
 
     def __analyzeFile(self, variant=None, _printPosTags=False):
         self.tmpAnalysisResult = 0

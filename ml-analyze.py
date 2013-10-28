@@ -17,7 +17,7 @@ def main():
                       dest="textDir", default="text-dir")
     
     parser.add_option("-l","--lang", action="store", type="string",
-                      dest="lang", default="EN")
+                      dest="lang", default="en")
 
     (options, args) = parser.parse_args()
 
