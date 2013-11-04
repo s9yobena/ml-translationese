@@ -2,6 +2,18 @@ import  lang.en.translationese as translationese
 import glob
 import core
 
+class TaggedFile:
+    def __init__(self, __tagFile, __tokens):
+        self._tagFile = __tagFile
+        self._tokens = __tokens
+
+    def pos_tags(self):
+        return self._tagFile
+
+    def tokens(self):
+        return self._tokens
+
+
 
 class TextAnalyser:
     """Computes the attributes related to a specific text in a file"""
@@ -28,20 +40,60 @@ class TextAnalyser:
                                          globals=globals(), 
                                          fromlist='translationese')
 
-    def __analyzeFile(self, variant=None, _printPosTags=False):
+    def __analyzeFile(self, tagFile=None, variant=None, _printPosTags=False):
         self.tmpAnalysisResult = 0
-        with translationese.Analysis(filename=self.fileName) as analysis:
-            if _printPosTags:
-                print "printing analysi", analysis.pos_tags_by_sentence()
+        if tagFile:
             if variant is not None:
                 self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
-                    analysis, variant)
+                    tagFile, variant)
             else:
-                self.tmpAanalysisResult = self.analyzerModule.quantify(analysis)
+                self.tmpAanalysisResult = self.analyzerModule.quantify(tagFile)
+        else:
+            with translationese.Analysis(filename=self.fileName) as analysis:
+                if _printPosTags:
+                    print "printing pos tags", analysis.pos_tags()
+                    print "printing tokens", analysis.tokens(),"\n"
+                if variant is not None:
+                    self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
+                        analysis, variant)
+                else:
+                    self.tmpAanalysisResult = self.analyzerModule.quantify(analysis)
 
     def computeAttribute(self,_attribute, _printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
-        self.__analyzeFile()
+        __tagFile= TaggedFile( [("Senoras","NP00SP0"),
+                                ("y","CC"),
+                                ("senores","NCMP000"),
+                                ("diputados","VMP00PM"),
+                                (",","Fc"),
+                                ("tendremos","VMIF1P0"),
+                                ("que","CS"),
+                                ("alterar","VMN0000"),
+                                ("el","DA0MS0"),
+                                ("orden","NCMS000"),
+                                ("de","SPS00"),
+                                ("el","DA0MS0")
+                                
+                                ], 
+                               ["Senoras",
+                                "y",
+                                "senores",
+                                "diputados",
+                                ",",
+                                "tendremos",
+                                "que",
+                                "alterar",
+                                "el"
+                                "orden",
+                                "de",
+                                "el"                                
+                                ]
+                               )
+
+
+        self.__analyzeFile(tagFile = __tagFile)
+        # self.__analyzeFile(_printPosTags = True)
+
         if _printAnalysisResults:
             print self.tmpAanalysisResult
         self.analysisResult[_attribute] = self.tmpAanalysisResult[_attribute]
