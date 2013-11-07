@@ -19,9 +19,12 @@ def main():
     parser.add_option("-l","--lang", action="store", type="string",
                       dest="lang", default="en")
 
+    parser.add_option("-f","--format", action="store", type="string",
+                      dest="format", default="text")
+    
+
     (options, args) = parser.parse_args()
 
-    # attributes = ["lexical_density","average_pmi","threshold_pmi"]
     attributes = ["lexical_density"]
 
     analyserList = []

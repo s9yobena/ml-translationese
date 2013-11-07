@@ -61,38 +61,7 @@ class TextAnalyser:
 
     def computeAttribute(self,_attribute, _printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
-        __tagFile= TaggedFile( [("Senoras","NP00SP0"),
-                                ("y","CC"),
-                                ("senores","NCMP000"),
-                                ("diputados","VMP00PM"),
-                                (",","Fc"),
-                                ("tendremos","VMIF1P0"),
-                                ("que","CS"),
-                                ("alterar","VMN0000"),
-                                ("el","DA0MS0"),
-                                ("orden","NCMS000"),
-                                ("de","SPS00"),
-                                ("el","DA0MS0")
-                                
-                                ], 
-                               ["Senoras",
-                                "y",
-                                "senores",
-                                "diputados",
-                                ",",
-                                "tendremos",
-                                "que",
-                                "alterar",
-                                "el"
-                                "orden",
-                                "de",
-                                "el"                                
-                                ]
-                               )
-
-
-        self.__analyzeFile(tagFile = __tagFile)
-        # self.__analyzeFile(_printPosTags = True)
+        self.__analyzeFile()
 
         if _printAnalysisResults:
             print self.tmpAanalysisResult
@@ -110,7 +79,7 @@ class DirAnalyser:
     def analyse(self, _attributes):
         analyserList = []
         # search for .txt files in __dir 
-        for textF in glob.glob(self.__dir+"/*.txt"):
+        for textF in glob.glob(self.__dir+"/"+self.__lang+"/*.txt"):
             analyser = TextAnalyser()
             analyser.setFile(textF)
             analyser.setLanguage(self.__lang)
