@@ -25,6 +25,7 @@ class TextAnalyser:
         self.tmpAnalysisResult = 0
         self.analysisResult = {}
         self._lang = ""
+        self._format = ""
     
     def setFile(self, _fileName):
         self.fileName = _fileName
@@ -32,6 +33,9 @@ class TextAnalyser:
     def setLanguage(self, __lang):
         core.posTagSetLang = __lang
         self._lang = __lang
+
+    def setFormat(self, __format):
+        self._format = __format
         
     def __setAnalyserModule(self, _analyserModule):
         self.analyzerModule = __import__('lang.{lang}.translationese.{modul}'
@@ -61,7 +65,10 @@ class TextAnalyser:
 
     def computeAttribute(self,_attribute, _printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
-        self.__analyzeFile()
+        if self._format=="txt":
+            self.__analyzeFile()
+        elif self._format=="freeling":
+            print "input file in freeling, will add processing later"
 
         if _printAnalysisResults:
             print self.tmpAanalysisResult
@@ -72,17 +79,20 @@ class TextAnalyser:
         return self.analysisResult[_attribute]
 
 class DirAnalyser:
-    def __init__(self, _dir, _lang):
+    def __init__(self, _dir, _lang, _format):
         self.__dir = _dir
         self.__lang = _lang
+        self.__format = _format
 
     def analyse(self, _attributes):
         analyserList = []
         # search for .txt files in __dir 
-        for textF in glob.glob(self.__dir+"/"+self.__lang+"/*.txt"):
+        for textF in glob.glob(self.__dir+"/"+self.__lang+
+                               "/*."+self.__format):
             analyser = TextAnalyser()
             analyser.setFile(textF)
             analyser.setLanguage(self.__lang)
+            analyser.setFormat(self.__format)
             for att in _attributes:
                 analyser.computeAttribute(att)
             analyserList.append(analyser)

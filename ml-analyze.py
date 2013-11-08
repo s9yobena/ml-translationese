@@ -20,15 +20,14 @@ def main():
                       dest="lang", default="en")
 
     parser.add_option("-f","--format", action="store", type="string",
-                      dest="format", default="text")
+                      dest="format", default="txt")
     
-
     (options, args) = parser.parse_args()
 
     attributes = ["lexical_density"]
 
     analyserList = []
-    dirAnalyser = DirAnalyser(options.textDir, options.lang)
+    dirAnalyser = DirAnalyser(options.textDir, options.lang, options.format)
     analyserList = dirAnalyser.analyse(attributes)
 
     app = QApplication(sys.argv)
