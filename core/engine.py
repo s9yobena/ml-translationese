@@ -1,6 +1,8 @@
-import  lang.en.translationese as translationese
+import lang.en.translationese as translationese
 import glob
 import core
+import re
+
 
 class TaggedFile:
     def __init__(self, __tagFile, __tokens):
@@ -69,7 +71,16 @@ class TextAnalyser:
             self.__analyzeFile()
         elif self._format=="freeling":
             print "input file in freeling, will add processing later"
+            # [re.findall("a",line) for line in open("sample-text.freeling")]
+            matches = []
+            with open(self.fileName,"r") as csvfile:
+                matches = [re.findall("([\w]+)[\s]+([\w]+)",line) for line in csvfile]
+                t_pos_tags = [item for sublist in matches for item in sublist]
+                t_tokens = [i[0] for i in t_pos_tags]
 
+            tf = TaggedFile(t_pos_tags, t_tokens)
+            self.__analyzeFile(tf)
+                 
         if _printAnalysisResults:
             print self.tmpAanalysisResult
         self.analysisResult[_attribute] = self.tmpAanalysisResult[_attribute]
