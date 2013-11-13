@@ -1,0 +1,5 @@
+This method combines flow analysis, processor-behavior prediction, and bound
+calculation in one integrated phase [Lundqvist 2002]. One problem with this
+approach is that analysis time is proportional to the actual execution time of
+the task. This can lead to a very long analysis, since simulation is typically
+orders of magnitudes slower than native execution.

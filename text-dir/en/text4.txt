@@ -1,0 +1,4 @@
+End-to-end measurements of a subset of all possible executions produce es-
+timates or distributions, not bounds for the execution times, if the subset is not
+guaranteed to contain the worst case. Even one execution would be enough if
+the worst-case input were known.
