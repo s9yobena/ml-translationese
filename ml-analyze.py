@@ -23,7 +23,8 @@ def main():
                       dest="format", default="txt")
 
     parser.add_option("-m","--module", action="store", type="string",
-                      dest="module", default="lexical_density")
+                      dest="module", default="lexical_density", 
+                      help="Lexical feature to compute; default: lexical_density")
 
 
     parser.add_option("--nw","--no-window", action="store_true",
