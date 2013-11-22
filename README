@@ -1,0 +1,50 @@
+ml-translationese: Multiple language translationese
+===================================================
+
+  Copyright (c) 2013
+  Universität des Saarlandes
+  Dept. of Applied Linguistics,
+  Interpreting and Translation  
+  Dr. José M. M. Martínez &  Youcef A. Benabbas
+
+Released as open source under the terms of the GNU General Public License
+(GPL2).
+
+Overview
+========
+
+ml-translationese is an wrapper around the translationese text processing
+toolkit, which adds support of German and Spanish text processing.
+
+Input
+=====
+
+Texts to be processed have to be put under one of the sub folders of text-dir
+(for each language, there exists a directory). By default, ml-translationese 
+processes texts found in text-dir/en (i.e., English texts).
+
+Output
+======
+
+According to the chosen linguistic feature (e.g., lexical density, average pmi,
+etc.), ml-translationese computes the value of the corresponding feature for 
+each text and displays the results in GUI (this behavior can be overridden by 
+providing the --nw option upon invoking ml-translationese.
+
+Usage
+=====
+
+ml-analyze.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -d TEXTDIR, --text-dir=TEXTDIR
+  -l LANG, --lang=LANG  
+  -f FORMAT, --format=FORMAT
+  --nw, --no-window     Don't use the GUI
+
+Credit
+======
+
+At its core, ml-translationese uses translationese modules for processing texts
+in English, whereas it updates modules for German and Spanish text processing.
