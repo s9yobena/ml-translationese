@@ -22,13 +22,18 @@ def main():
     parser.add_option("-f","--format", action="store", type="string",
                       dest="format", default="txt")
 
+    parser.add_option("-m","--module", action="store", type="string",
+                      dest="module", default="lexical_density")
+
+
     parser.add_option("--nw","--no-window", action="store_true",
                       dest="nw", default=False, help="Don't use the GUI")
 
     
     (options, args) = parser.parse_args()
 
-    attributes = ["lexical_density"]
+    attributes = []
+    attributes.append(options.module)
 
     analyserList = []
     dirAnalyser = DirAnalyser(options.textDir, options.lang, options.format)
