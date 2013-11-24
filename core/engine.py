@@ -5,9 +5,10 @@ import re
 
 
 class TaggedFile:
-    def __init__(self, __tagFile, __tokens):
+    def __init__(self, __tagFile, __tokens, __sentences=None):
         self._tagFile = __tagFile
         self._tokens = __tokens
+        self._sentences = __sentences
 
     def pos_tags(self):
         return self._tagFile
@@ -15,6 +16,8 @@ class TaggedFile:
     def tokens(self):
         return self._tokens
 
+    def sentences(self):
+        return self._sentences
 
 
 class TextAnalyser:
@@ -49,6 +52,11 @@ class TextAnalyser:
     def __analyzeFile(self, tagFile=None, variant=None, _printPosTags=False):
         self.tmpAnalysisResult = 0
         if tagFile:
+            if _printPosTags:                
+                print "printing pos tags", tagFile.pos_tags()
+                print "printing tokens", tagFile.tokens(),"\n"
+                print "printing sentencess", tagFile.sentences()
+
             if variant is not None:
                 self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
                     tagFile, variant)
@@ -59,6 +67,7 @@ class TextAnalyser:
                 if _printPosTags:
                     print "printing pos tags", analysis.pos_tags()
                     print "printing tokens", analysis.tokens(),"\n"
+                    print "printing sentences", analysis.sentences()
                 if variant is not None:
                     self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
                         analysis, variant)
@@ -70,15 +79,22 @@ class TextAnalyser:
         if self._format=="txt":
             self.__analyzeFile()
         elif self._format=="freeling":
-            print "input file in freeling, will add processing later"
-            # [re.findall("a",line) for line in open("sample-text.freeling")]
             matches = []
             with open(self.fileName,"r") as csvfile:
-                matches = [re.findall("([\w]+)[\s]+([\w]+)",line) for line in csvfile]
+                matches = [re.findall("([\w]+|\.)[\s]+([\w]+)",line) for line in csvfile]
                 t_pos_tags = [item for sublist in matches for item in sublist]
                 t_tokens = [i[0] for i in t_pos_tags]
-
-            tf = TaggedFile(t_pos_tags, t_tokens)
+                t_sentences = []
+                t_sentence = ""
+                for t in t_tokens:
+                    if t==".":
+                        t_sentence = t_sentence[0:-1]+"."
+                        t_sentences.append(t_sentence)
+                        t_sentence=""
+                    else:
+                        t_sentence = t_sentence+t+" "
+                
+            tf = TaggedFile(t_pos_tags, t_tokens, t_sentences)
             self.__analyzeFile(tf)
                  
         if _printAnalysisResults:
