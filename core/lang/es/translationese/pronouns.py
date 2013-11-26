@@ -1,36 +1,44 @@
 """\
-This hypothesis checks whether pronouns from
-:mod:`translationese.function_words` alone can yield a high classification
-accuracy. Each pronoun in the corpus is a feature, whose value is the
-normalized frequency of its occurrences in the chunk.
+This hypothesis checks whether pronouns taken from
+`http://nlp.lsi.upc.edu/freeling/doc/tagsets/tagset-es.html#pronombres` alone
+can yield a high classification accuracy. Each pronoun in the corpus is a
+feature, whose value is the normalized frequency of its occurrences in the
+chunk.
 """
 
 PRONOUNS = [
- "he",
- "her",
- "hers",
- "herself",
- "him",
- "himself",
- "i",
- "it",
- "itself",
+ "yo",
  "me",
- "mine",
- "myself",
- "one",
- "oneself",
- "ours",
- "ourselves",
- "she",
- "theirs",
- "them",
- "themselves",
- "they",
- "us",
- "we",
- "you",
- "yourself",
+ "mí",
+ "nos",
+ "nosotras",
+ "nosotros",
+ "conmigo",
+ "te",
+ "ti",
+ "tú",
+ "os",
+ "usted",
+ "ustedes",
+ "vos",
+ "vosotras",
+ "vosotros",
+ "contigo",
+ "él",
+ "ella",
+ "ellas",
+ "ello",
+ "ellos",
+ "la",
+ "las",
+ "lo",
+ "lo",
+ "los",
+ "le",
+ "les",
+ "se",
+ "sí",
+ "consigo",
 ]
 """List of pronouns"""
 
