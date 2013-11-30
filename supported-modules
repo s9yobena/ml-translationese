@@ -1,0 +1,18 @@
+This file contains the modules supported by ml-translationese for Spanish and
+German.
+
+Since ml-translationese is a wrapper around translationese, all English modules
+are supported.
+
+
+Spanish Modules:
+================
+
+- lexical_density
+- mean_sentence_length
+
+
+German Modules:
+===============
+
+- None
