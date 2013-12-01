@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 This hypothesis checks whether pronouns taken from
 `http://nlp.lsi.upc.edu/freeling/doc/tagsets/tagset-es.html#pronombres` alone

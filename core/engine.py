@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import lang.en.translationese as translationese
 from lang.en.translationese.__init__ import Analysis
 import glob
