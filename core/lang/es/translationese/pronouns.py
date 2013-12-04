@@ -34,7 +34,6 @@ PRONOUNS = [
  "la",
  "las",
  "lo",
- "lo",
  "los",
  "le",
  "les",
