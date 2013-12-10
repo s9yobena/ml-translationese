@@ -1,10 +1,17 @@
 import lang.en.translationese as translationese
+from lang.en.translationese.__init__ import Analysis
 import glob
 import core
 import re
 
+# The results model dictionary is used to distinguish between attributes for 
+# which the analysis of one text returns one value (e.g., lexical_density) and
+# those where the analysis of one text returns many values (e.g., 
+# function_words).
+resultsModel = {"lexical_density": "1x1", "function_words":"1xN"}
 
-class TaggedFile:
+
+class TaggedFile(Analysis):
     def __init__(self, __tagFile, __tokens, __sentences=None):
         self._tagFile = __tagFile
         self._tokens = __tokens
@@ -19,6 +26,11 @@ class TaggedFile:
     def sentences(self):
         return self._sentences
 
+class AnalysisResult:
+    def __init__(self, _model="", _key="", _value=""):
+        self.model = _model
+        self.key = _key
+        self.value = _value
 
 class TextAnalyser:
     """Computes the attributes related to a specific text in a file"""
@@ -61,7 +73,7 @@ class TextAnalyser:
                 self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
                     tagFile, variant)
             else:
-                self.tmpAanalysisResult = self.analyzerModule.quantify(tagFile)
+                self.tmpAnalysisResult = self.analyzerModule.quantify(tagFile)
         else:
             with translationese.Analysis(filename=self.fileName) as analysis:
                 if _printPosTags:
@@ -72,7 +84,7 @@ class TextAnalyser:
                     self.tmpAnalysisResult = self.analyzerModule.quantify_variant(
                         analysis, variant)
                 else:
-                    self.tmpAanalysisResult = self.analyzerModule.quantify(analysis)
+                    self.tmpAnalysisResult = self.analyzerModule.quantify(analysis)
 
     def computeAttribute(self,_attribute, _printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
@@ -98,12 +110,30 @@ class TextAnalyser:
             self.__analyzeFile(tf)
                  
         if _printAnalysisResults:
-            print self.tmpAanalysisResult
-        self.analysisResult[_attribute] = self.tmpAanalysisResult[_attribute]
-        
+            print self.tmpAnalysisResult
+
+        if resultsModel[_attribute] == "1x1":
+            self.analysisResult[_attribute] = \
+                AnalysisResult(resultsModel[_attribute],
+                               _attribute, 
+                               # get only one value; internally, 
+                               # tmpAnalysisResult is a dict. with only one item.
+                               self.tmpAnalysisResult[_attribute]) 
+        elif resultsModel[_attribute] == "1xN":
+            self.analysisResult[_attribute] = \
+                AnalysisResult(resultsModel[_attribute],
+                               _attribute, 
+                               # get all the values; internally,
+                               # tmpAnalysisResult is a dict with N items.
+                               self.tmpAnalysisResult)
+
         
     def getResult(self, _attribute):
-        return self.analysisResult[_attribute]
+        return self.analysisResult[_attribute].value
+
+    def getModel(self, _attribute):
+        return self.analysisResult[_attribute].model
+
 
 class DirAnalyser:
     def __init__(self, _dir, _lang, _format):

@@ -41,10 +41,24 @@ def main():
     analyserList = dirAnalyser.analyse(attributes)
 
     if options.nw:
-        print repr("File Name"), repr(attributes[0])
-        for a in analyserList:
-            print repr(a.fileName), \
-                repr("{0:.3f}".format(a.getResult(attributes[0])))
+
+        if analyserList[0].getModel(attributes[0]) == "1x1":
+            print repr("File Name"), repr(attributes[0])
+            for a in analyserList:
+                print repr(a.fileName), \
+                    repr("{0:.3f}".format(a.getResult(attributes[0])))
+
+        elif analyserList[0].getModel(attributes[0]) == "1xN":
+            for a in analyserList:
+                print
+                print "File Name: ", a.fileName
+                print attributes[0],": "
+                for k,v in a.getResult(attributes[0]).iteritems():
+                    if v != float(0):
+                        print k,v
+                # print repr(a.fileName), \
+                #     repr("{0:.3f}".format(a.getResult(attributes[0])))
+                
 
     else:
         app = QApplication(sys.argv)
