@@ -10,7 +10,9 @@ import re
 # which the analysis of one text returns one value (e.g., lexical_density) and
 # those where the analysis of one text returns many values (e.g., 
 # function_words).
-resultsModel = {"lexical_density": "1x1", "function_words":"1xN"}
+resultsModel = {"lexical_density": "1x1",
+                "function_words":"1xN",
+                "pronouns":"1xN"}
 
 
 class TaggedFile(Analysis):
