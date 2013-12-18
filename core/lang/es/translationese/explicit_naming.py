@@ -6,12 +6,15 @@ order of 3. See also :mod:`translationese.pronouns`.
 """
 
 from pronouns import PRONOUNS as PRONOUNS_LIST
-from translationese.utils import is_proper_noun
+# from translationese.utils import is_proper_noun
+from utils import is_proper_noun
 
 def quantify(analysis):
     """Quantify explicit naming."""
     proper_nouns = sum(1 for x in analysis.pos_tags() if is_proper_noun(x))
-
     pronouns = sum(1 for x in analysis.tokens() if x in PRONOUNS_LIST)
-
-    return { "explicit_naming": 3.0 * (float(pronouns) / proper_nouns) }
+    
+    if proper_nouns != 0:
+        return { "explicit_naming": 3.0 * (float(pronouns) / proper_nouns) }
+    else:
+        return { "explicit_naming": "None" }
