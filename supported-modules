@@ -18,6 +18,7 @@ Spanish Modules:
 - average_pmi
 - mean_word_rank
 - repetitions
+- ratio_to_passive_verbs
 
 
 German Modules:
