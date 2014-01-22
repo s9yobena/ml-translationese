@@ -19,8 +19,8 @@ resultsModel = {"lexical_density": "1x1",
                 "ratio_to_passive_verbs":"1x1",
                 "syllable_ratio":"1x1",
                 "average_pmi":"1x1",
-                "mean_word_rank":"1x1"}
-
+                "mean_word_rank":"1x1",
+                "repetitions":"1x1"}
 
 class TaggedFile(Analysis):
     def __init__(self, __tagFile, __tokens, __sentences=None):

@@ -8,6 +8,10 @@ feature's values are magnified by an order of 3.
 
 from collections import Counter
 
+from core import mlPOS, posTagSetLang
+import core
+
+
 ignored_tokens = set([
     # Inflections of 'be'
     "am", "is", "are", "was", "were", "be", "being", "been", 
@@ -19,10 +23,10 @@ ignored_tokens = set([
 def proper_pos(token, pos):
     if token.lower() in ignored_tokens: return False
 
-    if pos.startswith("NN"): return True # Noun
-    if pos.startswith("VB"): return True # Verb
-    if pos.startswith("JJ"): return True # Adjective
-    if pos.startswith("RB"): return True # Adverb
+    if pos.startswith(core.mlPOS[("es","noun","n")]): return True # Noun
+    if pos.startswith(core.mlPOS[("es","verb","vrb")]): return True # Verb
+    if pos.startswith(core.mlPOS[("es","adjective","adj")]): return True # Adjective
+    if pos.startswith(core.mlPOS[("es","adverb","adv")]): return True # Adverb
 
     return False
 
