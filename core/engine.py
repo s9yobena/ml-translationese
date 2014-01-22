@@ -13,7 +13,8 @@ import re
 resultsModel = {"lexical_density": "1x1",
                 "function_words":"1xN",
                 "pronouns":"1xN",
-                "explicit_naming":"1x1"}
+                "explicit_naming":"1x1",
+                "repetitions":"1x1"}
 
 
 class TaggedFile(Analysis):
