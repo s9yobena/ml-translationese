@@ -98,7 +98,7 @@ class TextAnalyser:
         elif self._format=="freeling":
             matches = []
             with open(self.fileName,"r") as csvfile:
-                matches = [re.findall("([\w]+|\.)[\s]+([\w]+)",line) for line in csvfile]
+                matches = [re.findall("([\w]+|\.|[.\?#@+,<>%~`!$^&\(\):;]+)[\s]+([\w]{4})",line) for line in csvfile]
                 t_pos_tags = [item for sublist in matches for item in sublist]
                 t_tokens = [i[0] for i in t_pos_tags]
                 t_sentences = []
