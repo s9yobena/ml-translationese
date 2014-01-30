@@ -1,39 +1,39 @@
-Senoras		         NP00SP0
-y		 	 CC
-senores          	 NCMP000
-diputados        	 VMP00PM
-,		 	 Fc
-tendremos    	 	 VMIF1P0
-que	         	 CS
-alterar	    	 	 VMN0000
-el	       	 	 DA0MS0
-orden		 	 NCMS000
-de		 	 SPS00
-el		 	 DA0MS
-.		 	 Fp	
+Senoras		         NP00SP0	Senoras
+y		 	 CC		y
+senores          	 NCMP000	senores
+diputados        	 VMP00PM	diputados
+,		 	 Fc		,
+tendremos    	 	 VMIF1P0	tendremos
+que	         	 CS		que
+alterar	    	 	 VMN0000	alterar
+el	       	 	 DA0MS0		el
+orden		 	 NCMS000	orden
+de		 	 SPS00		de
+el		 	 DA0MS		el
+.		 	 Fp		.	
 
-Estaba			 VAII1S0	
-previst			 VMP00SM	
-qu			 CS	
-ho			 RG	
-dedicásemo		 VMSI1P0	
-una			 DI0FS0	
-declaración		 NCFS000	
-y			 CC
-un			 DI0MS0
-minuto			 NCMS000
-de			 SPS00
-silencio		 NCMS000
-en_memoria_de		 SPS00
-la			 DA0FS0
-tragedia	         NCFS000
-de		    	 SPS00
-Auschwitz-Birkenau	 NP00O00	
-y			 CC
-creo			 VMIP1S0
-que			 CS
-debemos			 VMIP1P0
-seguir			 VMN0000
-haciendo		 VMG0000
-lo			 PP3CNA00
-.			 Fp	
+Estaba			 VAII1S0		Estaba
+previst			 VMP00SM		previst
+qu			 CS			qu
+ho			 RG			ho
+dedicásemo		 VMSI1P0		dedicásemo
+una			 DI0FS0			una
+declaración		 NCFS000		declaración
+y			 CC			y
+un			 DI0MS0			un
+minuto			 NCMS000		minuto
+de			 SPS00			de
+silencio		 NCMS000		silencio
+en_memoria_de		 SPS00			en
+la			 DA0FS0			la
+tragedia	         NCFS000		tragedia
+de		    	 SPS00			de
+Auschwitz-Birkenau	 NP00O00		Auschwitz
+y			 CC			y
+creo			 VMIP1S0		creo
+que			 CS			que
+debemos			 VMIP1P0		debemos
+seguir			 VMN0000		seguir
+haciendo		 VMG0000		haciendo
+lo			 PP3CNA00		lo
+.			 Fp			.

@@ -5,6 +5,7 @@ from lang.en.translationese.__init__ import Analysis
 import glob
 import core
 import re
+import codecs
 
 # The results model dictionary is used to distinguish between attributes for 
 # which the analysis of one text returns one value (e.g., lexical_density) and
@@ -98,7 +99,8 @@ class TextAnalyser:
             self.__analyzeFile()
         elif self._format=="freeling":
             matches = []
-            with open(self.fileName,"r") as csvfile:
+            with codecs.open(self.fileName,
+                             encoding='utf-8', mode="r") as csvfile:
                 matches = [re.findall("(.+?)[\s]+(.+?)[\s]+(.+?)$",line) for line in csvfile]
                 t_pos_tags = [item for sublist in matches for item in sublist]
                 t_tokens = [i[0] for i in t_pos_tags]

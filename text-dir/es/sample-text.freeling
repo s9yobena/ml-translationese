@@ -1,13 +1,13 @@
-Senoras		 NP00SP0
-y		 CC
-senores          NCMP000
-diputados        VMP00PM
-,		 Fc
-tendremos    	 VMIF1P0
-que	         CS
-alterar	    	 VMN0000
-el	       	 DA0MS0
-orden		 NCMS000
-de		 SPS00
-el		 DA0MS
-.		 Fp
+Senoras		 NP00SP0	Senoras
+y		 CC		y
+senores          NCMP000	senores
+diputados        VMP00PM	diputados
+,		 Fc		,
+tendremos    	 VMIF1P0	tendremos
+que	         CS		que
+alterar	    	 VMN0000	alterar
+el	       	 DA0MS0		el
+orden		 NCMS000	orden
+de		 SPS00		de
+el		 DA0MS		el
+.		 Fp		.
