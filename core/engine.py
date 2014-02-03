@@ -101,19 +101,24 @@ class TextAnalyser:
             matches = []
             with codecs.open(self.fileName,
                              encoding='utf-8', mode="r") as csvfile:
-                matches = [re.findall("(.+?)[\s]+(.+?)[\s]+(.+?)$",line) for line in csvfile]
-                t_pos_tags = [item for sublist in matches for item in sublist]
-                t_tokens = [i[0] for i in t_pos_tags]
+                t_pos_tags = []
+                t_tokens = []
                 t_sentences = []
                 t_sentence = ""
-                for t in t_tokens:
-                    if t==".":
-                        t_sentence = t_sentence[0:-1]+"."
+                for line in csvfile:
+                    if line == "\n":
                         t_sentences.append(t_sentence)
-                        t_sentence=""
+                        t_sentence=""                        
+                        continue
                     else:
-                        t_sentence = t_sentence+t+" "
-                
+                        matches = re.findall("(.+?)[\s]+(.+?)[\s]+(.+?)$",line) 
+                        t_pos_tag = matches[0]
+                        t_token = t_pos_tag[0]
+                        t_sentence = t_sentence+t_token+" "
+                        
+                        t_pos_tags.append(t_pos_tag)
+                        t_tokens.append(t_token)
+
             tf = TaggedFile(t_pos_tags, t_tokens, t_sentences)
             self.__analyzeFile(tf)
                  
