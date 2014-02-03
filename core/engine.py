@@ -144,22 +144,33 @@ class TextAnalyser:
 
 
 class DirAnalyser:
-    def __init__(self, _dir, _lang, _format):
+    def __init__(self, _dir, _lang, _format, _input_file):
         self.__dir = _dir
         self.__lang = _lang
         self.__format = _format
+        self.__input_file = _input_file
 
     def analyse(self, _attributes):
         analyserList = []
         # search for .txt files in __dir 
-        for textF in glob.glob(self.__dir+"/"+self.__lang+
-                               "/*."+self.__format):
+        if self.__input_file is None:
+            for textF in glob.glob(self.__dir+"/"+self.__lang+
+                                   "/*."+self.__format):
+                analyser = TextAnalyser()
+                analyser.setFile(textF)
+                analyser.setLanguage(self.__lang)
+                analyser.setFormat(self.__format)
+                for att in _attributes:
+                    analyser.computeAttribute(att)
+                    analyserList.append(analyser)
+            return analyserList
+        else:
             analyser = TextAnalyser()
-            analyser.setFile(textF)
+            analyser.setFile(self.__input_file)
             analyser.setLanguage(self.__lang)
             analyser.setFormat(self.__format)
             for att in _attributes:
                 analyser.computeAttribute(att)
-            analyserList.append(analyser)
-        return analyserList
+                analyserList.append(analyser)
+            return analyserList
 

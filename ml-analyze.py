@@ -30,6 +30,9 @@ def main():
     parser.add_option("--nw","--no-window", action="store_true",
                       dest="nw", default=False, help="Don't use the GUI")
 
+    parser.add_option("-i","--input", action="store", type="string",
+                      dest="input_file", default=None)
+
     
     (options, args) = parser.parse_args()
 
@@ -37,7 +40,8 @@ def main():
     attributes.append(options.module)
 
     analyserList = []
-    dirAnalyser = DirAnalyser(options.textDir, options.lang, options.format)
+    dirAnalyser = DirAnalyser(options.textDir, options.lang, options.format,
+                              options.input_file)
     analyserList = dirAnalyser.analyse(attributes)
 
     if options.nw:
