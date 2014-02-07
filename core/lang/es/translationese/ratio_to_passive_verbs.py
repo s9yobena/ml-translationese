@@ -22,7 +22,7 @@ def quantify(analysis):
             pos_tag[2] == 'P'
     
     def count_all_verbs():
-        result =  float(len([x for (x,y) in analysis.pos_tags() if is_verb(y)]))
+        result =  float(len([x for (x,y,z) in analysis.pos_tags() if is_verb(y)]))
         return result
    
     def count_all_passive_verbs():
