@@ -15,7 +15,7 @@ resultsModel = {"lexical_density": "1x1",
                 "function_words":"1xN",
                 "pronouns":"1xN",
                 "explicit_naming":"1x1",
-                "ratio_to_passive_verbs":"1x1"}
+                "ratio_to_passive_verbs":"1x1",
                 "syllable_ratio":"1x1"}
 
 
