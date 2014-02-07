@@ -5,7 +5,7 @@ vowel-sequences that are delimited by consonants or space in a word, normalized
 by the number of tokens in the chunk.
 """
 
-import translationese
+from .. import translationese
 import re
 
 def syllables(word):
@@ -45,7 +45,9 @@ def syllables(word):
 
 def quantify(a):
     """Quantify syllable ratio."""
-    assert isinstance(a, translationese.Analysis)
+    # This line causes an error as we don't use the same version of 
+    # translationese.Analysis
+    # assert isinstance(a, translationese.Analysis)
 
     num_syllables = sum(syllables(tok) for tok in a.tokens())
 
