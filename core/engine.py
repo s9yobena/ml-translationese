@@ -106,7 +106,7 @@ class TextAnalyser:
                 t_sentences = []
                 t_sentence = ""
                 for line in csvfile:
-                    if line == "\n":
+                    if line == "\n" or line =="#":
                         t_sentences.append(t_sentence)
                         t_sentence=""                        
                         continue
