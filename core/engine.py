@@ -12,6 +12,7 @@ import codecs
 # those where the analysis of one text returns many values (e.g., 
 # function_words).
 resultsModel = {"lexical_density": "1x1",
+                "mean_sentence_length": "1x1",
                 "function_words":"1xN",
                 "pronouns":"1xN",
                 "explicit_naming":"1x1",
