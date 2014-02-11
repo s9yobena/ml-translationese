@@ -29,7 +29,7 @@ def quantify(analysis):
         passive_verbs = 0
         text = analysis.pos_tags()
         for i in range(len(text)):
-            if (text[i][0] == 'ser') and (is_VBN_verb(text[i+1][1])):
+            if (text[i][1][:2] == 'VS') and (is_VBN_verb(text[i+1][1])):
                 passive_verbs += 1
         
         return float(passive_verbs)
