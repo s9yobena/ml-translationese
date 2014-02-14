@@ -23,7 +23,7 @@ def main():
                       dest="format", default="txt")
 
     parser.add_option("-m","--module", action="store", type="string",
-                      dest="module", default="lexical_density", 
+                      dest="module", default=None, 
                       help="Lexical feature to compute; default: lexical_density")
 
 
@@ -35,6 +35,12 @@ def main():
 
     
     (options, args) = parser.parse_args()
+    
+    # check arguments
+    if options.module is None:
+        print "Please provide a module name"
+        parser.print_help()
+        return
 
     attributes = []
     attributes.append(options.module)
