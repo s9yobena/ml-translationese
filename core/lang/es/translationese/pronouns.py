@@ -9,42 +9,54 @@ chunk.
 """
 
 PRONOUNS = [
- "yo",
- "me",
- "mí",
- "nos",
- "nosotras",
- "nosotros",
- "conmigo",
- "te",
- "ti",
- "tú",
- "os",
- "usted",
- "ustedes",
- "vos",
- "vosotras",
- "vosotros",
- "contigo",
- "él",
- "ella",
- "ellas",
- "ello",
- "ellos",
- "la",
- "las",
- "lo",
- "los",
- "le",
- "les",
- "se",
- "sí",
- "consigo",
-]
+    (u"yo",None),
+    (u"me",None),
+    (u"mí",None),
+    (u"nos",None),
+    (u"nosotras",None),
+    (u"nosotros",None),
+    (u"conmigo",None),
+    (u"te",None),
+    (u"ti",None),
+    (u"tú",None),
+    (u"os",None),
+    (u"usted",None),
+    (u"ustedes",None),
+    (u"vos",None),
+    (u"vosotras",None),
+    (u"vosotros",None),
+    (u"contigo",None),
+    (u"él",None),
+    (u"ella",None),
+    (u"ellas",None),
+    (u"ello",None),
+    (u"ellos",None),
+    (u"la","P"),
+    (u"las","P"),
+    (u"lo","P"),
+    (u"los","P"),
+    (u"le",None),
+    (u"les",None),
+    (u"se",None),
+    (u"sí","P"),
+    (u"consigo",None)
+    ]
 """List of pronouns"""
 
 def quantify(analysis):
     """Quantify pronouns."""
+     
     freq = analysis.histogram_normalized()
-    pairs = [ (word, freq.get(word, 0.0)) for word in PRONOUNS ]
+    pairs = []
+    for word, pos in PRONOUNS:
+        if pos is None:
+            pairs.append( (word, freq.get(word, 0.0)) )
+        else:
+            # For tokens that require disambiguation (e.g., la, las, etc.),
+            # we make sure that the token in analysis belongs to the same category
+            # as the token in PRONOUNS
+            t_pos = analysis.word_pos(word)
+            if  t_pos != None and t_pos[0] == pos:
+                pairs.append( (word, freq.get(word, 0.0)) )
+
     return dict(pairs)
