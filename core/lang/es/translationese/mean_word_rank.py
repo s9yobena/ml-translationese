@@ -3,8 +3,9 @@ We assume that less frequent words are used more often in original texts than
 in translated ones.
 """
 
-import translationese
-from translationese.word_ranks import WORD_RANKS
+# import translationese
+# from translationese.word_ranks import WORD_RANKS
+from word_ranks import WORD_RANKS
 
 VERY_HIGH_RANK = 6000
 """Very high rank for a word, guessed for unknown words. The highest rank
@@ -20,7 +21,7 @@ VARIANTS = [0, 1]
 
 def quantify_variant(analysis, variant):
     """Quantify mean word rank."""
-    assert isinstance(analysis, translationese.Analysis)
+    # assert isinstance(analysis, translationese.Analysis)
 
     count = 0
     rank_sum = 0
