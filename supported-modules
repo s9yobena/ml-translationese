@@ -21,6 +21,7 @@ Spanish Modules:
 - ratio_to_passive_verbs
 - syllable_ratio
 - average_pmi
+- mean_word_rank
 
 
 German Modules:
