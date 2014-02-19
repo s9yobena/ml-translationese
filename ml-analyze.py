@@ -24,7 +24,7 @@ def main():
 
     parser.add_option("-m","--module", action="store", type="string",
                       dest="module", default=None, 
-                      help="Lexical feature to compute; default: lexical_density")
+                      help="Lexical feature to compute")
 
 
     parser.add_option("--nw","--no-window", action="store_true",
