@@ -19,7 +19,8 @@ resultsModel = {"lexical_density": "1x1",
                 "ratio_to_passive_verbs":"1x1",
                 "syllable_ratio":"1x1",
                 "average_pmi":"1x1",
-                "repetitions":"1x1"}
+                "repetitions":"1x1",
+                "mean_word_rank":"1x1"}
 
 class TaggedFile(Analysis):
     def __init__(self, __tagFile, __tokens, __sentences=None):
@@ -56,6 +57,7 @@ class TextAnalyser:
         self.fileName=""
         self.posTagSet = ""
         self.analyzerModule = 0
+        self.analyzerVariants = 0
         self.tmpAnalysisResult = 0
         self.analysisResult = {}
         self._lang = ""
@@ -77,7 +79,10 @@ class TextAnalyser:
                                                  modul = _analyserModule),
                                          globals=globals(), 
                                          fromlist='translationese')
-
+        if hasattr(self.analyzerModule, 'quantify_variant'):
+            self.analyzerVariants =  self.analyzerModule.VARIANTS 
+   
+        print self.analyzerVariants
     def __analyzeFile(self, tagFile=None, variant=None, _printPosTags=False):
         self.tmpAnalysisResult = 0
         if tagFile:
@@ -130,7 +135,11 @@ class TextAnalyser:
                         t_tokens.append(t_token)
 
             tf = TaggedFile(t_pos_tags, t_tokens, t_sentences)
-            self.__analyzeFile(tf)
+            if self.analyzerVariants == 0:
+                self.__analyzeFile(tf)
+            else:
+                for av in self.analyzerVariants:
+                    self.__analyzeFile(tf, av)
                  
         if _printAnalysisResults:
             print self.tmpAnalysisResult
