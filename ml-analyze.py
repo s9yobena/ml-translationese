@@ -26,6 +26,9 @@ def main():
                       dest="module", default=None, 
                       help="Lexical feature to compute")
 
+    parser.add_option("-v","--variant", action="store", type="string",
+                      dest="variant", default=None, 
+                      help="Variant to use when module requires one")
 
     parser.add_option("--nw","--no-window", action="store_true",
                       dest="nw", default=False, help="Don't use the GUI")
@@ -48,7 +51,7 @@ def main():
     analyserList = []
     dirAnalyser = DirAnalyser(options.textDir, options.lang, options.format,
                               options.input_file)
-    analyserList = dirAnalyser.analyse(attributes)
+    analyserList = dirAnalyser.analyse(attributes, options.variant)
 
     if options.nw:
 
