@@ -17,7 +17,8 @@ we exclude punctuation marks.
 import os
 if os.environ.get("READTHEDOCS", None) != 'True':
     from nltk.util import ingrams
-from translationese.utils import sparse_dict_increment
+# from translationese.utils import sparse_dict_increment
+from utils import sparse_dict_increment
 
 __author__ = "Ohad Lutzky"
 __email__ = "ohad@lutzky.net"

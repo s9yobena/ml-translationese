@@ -21,7 +21,7 @@ resultsModel = {"lexical_density": "1x1",
                 "average_pmi":"1x1",
                 "repetitions":"1x1",
                 "mean_word_rank":"1x1",
-                "mean_word_rank":"1x1"}
+                "character_n_grams":"1x1"}
 
 
 class TaggedFile(Analysis):
