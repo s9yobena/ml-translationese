@@ -108,7 +108,7 @@ class TextAnalyser:
                 else:
                     self.tmpAnalysisResult = self.analyzerModule.quantify(analysis)
 
-    def computeAttribute(self,_attribute, _printAnalysisResults = False):
+    def computeAttribute(self,_attribute,_variant,_printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
         if self._format=="txt":
             self.__analyzeFile()
@@ -138,8 +138,8 @@ class TextAnalyser:
             if self.analyzerVariants == 0:
                 self.__analyzeFile(tf)
             else:
-                for av in self.analyzerVariants:
-                    self.__analyzeFile(tf, av)
+                # TODO: make sure the use supplied variant is valid
+                self.__analyzeFile(tf, _variant)
                  
         if _printAnalysisResults:
             print self.tmpAnalysisResult
@@ -174,7 +174,7 @@ class DirAnalyser:
         self.__format = _format
         self.__input_file = _input_file
 
-    def analyse(self, _attributes):
+    def analyse(self, _attributes, _variant):
         analyserList = []
         # search for .txt files in __dir 
         if self.__input_file is None:
@@ -185,7 +185,7 @@ class DirAnalyser:
                 analyser.setLanguage(self.__lang)
                 analyser.setFormat(self.__format)
                 for att in _attributes:
-                    analyser.computeAttribute(att)
+                    analyser.computeAttribute(att, _variant)
                     analyserList.append(analyser)
             return analyserList
         else:
@@ -194,7 +194,7 @@ class DirAnalyser:
             analyser.setLanguage(self.__lang)
             analyser.setFormat(self.__format)
             for att in _attributes:
-                analyser.computeAttribute(att)
+                analyser.computeAttribute(att, _variant)
                 analyserList.append(analyser)
             return analyserList
 
