@@ -17,10 +17,12 @@ def main():
                       dest="textDir", default="text-dir")
     
     parser.add_option("-l","--lang", action="store", type="string",
-                      dest="lang", default="en")
+                      dest="lang", default="es",
+                      help="Set input language to [en|es|de] for [English|Spanish|German]")
 
     parser.add_option("-f","--format", action="store", type="string",
-                      dest="format", default="txt")
+                      dest="format", default="freeling",
+                      help="Set input format to [txt|freeling] for [Text|FreeLing]")
 
     parser.add_option("-m","--module", action="store", type="string",
                       dest="module", default=None, 
@@ -30,8 +32,9 @@ def main():
                       dest="variant", default=None, 
                       help="Variant to use when module requires one")
 
-    parser.add_option("--nw","--no-window", action="store_true",
-                      dest="nw", default=False, help="Don't use the GUI")
+    parser.add_option("-g","--gui", action="store_true",
+                      dest="gui", default=False, 
+                      help="Display output on  GUI")
 
     parser.add_option("-i","--input", action="store", type="string",
                       dest="input_file", default=None)
@@ -53,7 +56,7 @@ def main():
                               options.input_file)
     analyserList = dirAnalyser.analyse(attributes, options.variant)
 
-    if options.nw:
+    if not options.gui:
 
         if analyserList[0].getModel(attributes[0]) == "1x1":
             print repr("File Name"), repr(attributes[0])
