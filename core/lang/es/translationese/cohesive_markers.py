@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 Translations are known to excessively use certain cohesive markers (see list
 below).

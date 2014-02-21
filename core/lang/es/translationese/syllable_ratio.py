@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We assume that simpler words are used in translated texts, resulting in fewer
 syllables per word. We approximate this feature by counting the number of

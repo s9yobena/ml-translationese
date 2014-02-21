@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 The frequency of proper nouns consisting of a single token, not having an
 additional proper noun as a neighbor. As a contemporary example, it is common

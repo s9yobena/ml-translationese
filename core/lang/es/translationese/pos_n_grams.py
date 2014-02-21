@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We hypothesize that different grammatical structures used
 in the different source languages interfere with the translations; and

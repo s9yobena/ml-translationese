@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We assume that English original texts tend to use the passive form more
 excessively than translated texts, due to the fact that the passive voice is

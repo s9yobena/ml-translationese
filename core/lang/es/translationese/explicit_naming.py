@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We hypothesize that one form of explicitation in translations is the use of a
 personal pronoun as a clarification of a proper noun. We calculate the ratio of

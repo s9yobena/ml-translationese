@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We compute the PMI (see :func:`translationese.Analysis.pmi`) of each bigram in
 a chunk, and count the (normalized) number of bigrams with PMI above 0.

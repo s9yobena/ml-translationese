@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We hypothesize that grammatical structure manifests itself in this feature,
 and as in POS `n`-grams, the different grammatical structures used in the

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 Splitting sentences is a common strategy in translation, which is also
 considered a form of simplification. Long and complicated sentences may be

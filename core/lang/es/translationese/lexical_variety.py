@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 Lexical variety attempts to capture the hypothesis that original texts are
 richer in terms of vocabulary. This is done by comparing the number of `tokens`

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 This feature is a variant of POS n-grams, where the n-grams can be anchored by
 specific (function) words. This feature is defined as the (normalized)

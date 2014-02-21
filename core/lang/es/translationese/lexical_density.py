@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 The frequency of tokens that are `not` nouns, adjectives, adverbs or verbs.
 """

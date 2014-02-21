@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We count the number of content words (words tagged as nouns, verbs, adjectives
 or adverbs) that occur more than once in a chunk, and normalize by the number

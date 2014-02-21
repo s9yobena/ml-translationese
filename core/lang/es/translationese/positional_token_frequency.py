@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 Writers have a relatively limited vocabulary from which to choose words to open
 or close a sentence. We hypothesize that the choices subject to interference.

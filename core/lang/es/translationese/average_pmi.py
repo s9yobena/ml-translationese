@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We expect original texts to use more collocations, and in any case to use them
 differently than translated texts. This hypothesis assumes that translations
