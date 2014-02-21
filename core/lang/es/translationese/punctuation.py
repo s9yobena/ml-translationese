@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 Punctuation marks organize the information within sentence boundaries and to a
 great extent reduce ambiguity; according to the explicitation hypothesis,

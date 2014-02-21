@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 The normalized frequencies of the `N` most frequent words in the corpus.
 Punctuation marks are excluded.

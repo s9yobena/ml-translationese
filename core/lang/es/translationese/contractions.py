@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 The ratio of contracted forms to their counterpart full form(s).  If the full
 form has zero occurrences, its count is changed to 1.

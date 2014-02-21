@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 The average length (in tokens) of proper nouns (consecutive tokens tagged as
 Proper Nouns), magnified by an order of 3. The motivation for this feature is

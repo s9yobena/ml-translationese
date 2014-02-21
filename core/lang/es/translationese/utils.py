@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """Various utilities for translationese analysis"""
 
 def output_filter_ngram(ngram):

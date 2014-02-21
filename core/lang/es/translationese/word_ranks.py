@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """Word ranks obtained from http://www.insightin.com/esl/"""
 
 WORD_RANKS = {

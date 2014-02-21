@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """\
 We assume that less frequent words are used more often in original texts than
 in translated ones.
