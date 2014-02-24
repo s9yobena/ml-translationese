@@ -37,12 +37,20 @@ class TaggedFile(Analysis):
     def sentences(self):
         return self._sentences
 
-    # Returns the pos of WORD if word is in _tokens, otherwise returns None
+    # Returns the pos of WORD if word is in _tokens, otherwise returns None.
     def word_pos(self, word):
         for t in self._tagFile:
             if t[0] == word:
                 return t[1]
         return None
+
+    # Same as word_pos, but compares word against tokens normalized to lower case.
+    def l_word_pos(self, word):
+        for t in self._tagFile:
+            if t[0].lower() == word:
+                return t[1]
+        return None
+
 
 class AnalysisResult:
     def __init__(self, _model="", _key="", _value=""):
