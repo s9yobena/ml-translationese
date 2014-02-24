@@ -121,7 +121,7 @@ class TextAnalyser:
     def computeAttribute(self,_attribute,_variant,_printAnalysisResults = False):
         self.__setAnalyserModule(_attribute)
         if self._format=="txt":
-            self.__analyzeFile()
+            self.__analyzeFile(variant=_variant)
         elif self._format=="freeling":
             matches = []
             with codecs.open(self.fileName,
