@@ -54,8 +54,9 @@ def quantify(analysis):
         else:
             # For tokens that require disambiguation (e.g., la, las, etc.),
             # we make sure that the token in analysis belongs to the same category
-            # as the token in PRONOUNS
-            t_pos = analysis.word_pos(word)
+            # as the token in PRONOUNS. 
+            # We also check against lower case tokens in the provided text.
+            t_pos = analysis.l_word_pos(word)
             if  t_pos != None and t_pos[0] == pos:
                 pairs.append( (word, freq.get(word, 0.0)) )
 
