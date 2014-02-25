@@ -20,7 +20,8 @@ resultsModel = {"lexical_density": "1x1",
                 "syllable_ratio":"1x1",
                 "average_pmi":"1x1",
                 "repetitions":"1x1",
-                "mean_word_rank":"1x1"}
+                "mean_word_rank":"1x1",
+                "contextual_function_words":"1xN"}
 
 class TaggedFile(Analysis):
     def __init__(self, __tagFile, __tokens, __sentences=None):

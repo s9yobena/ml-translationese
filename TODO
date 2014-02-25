@@ -9,4 +9,7 @@ Spanish cohesive_markers module:
 	- Update list of cohesive markers with Spanish words.
 
 Spanish contractions module:
-	- Update list of contracted forms with Spanish counterparts
+	- Update list of contracted forms with Spanish counterparts.
+
+Spanish contextual_function_words module:
+	- Check the output is correct.

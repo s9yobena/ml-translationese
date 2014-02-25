@@ -12,8 +12,10 @@ least two of the elements are functions words, and at most one is a POS tag.
 See also :mod:`translationese.function_words`.
 """
 
-from translationese.utils import output_filter_ngram, sparse_dict_increment
-from translationese.function_words import FUNCTION_WORDS
+# from translationese.utils import output_filter_ngram, sparse_dict_increment
+from utils import output_filter_ngram, sparse_dict_increment
+# from translationese.function_words import FUNCTION_WORDS
+from function_words import FUNCTION_WORDS
 
 import os
 if os.environ.get("READTHEDOCS", None) != 'True':
@@ -40,7 +42,7 @@ def quantify(analysis):
     """Quantify contextual function words."""
     d = {}
 
-    word_stream = (function_word_or_POS(token, tag) for (token, tag)
+    word_stream = (function_word_or_POS(token, tag) for (token, tag, _token)
                    in analysis.pos_tags())
     num_tokens = float(len(analysis.pos_tags()))
 

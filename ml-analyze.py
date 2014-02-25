@@ -72,7 +72,7 @@ def main():
                 print attributes[0],": "
                 for k,v in a.getResult(attributes[0]).iteritems():
                     if v != float(0):
-                        print k,v
+                        print repr(k),repr(v)
                 # print repr(a.fileName), \
                 #     repr("{0:.3f}".format(a.getResult(attributes[0])))
                 

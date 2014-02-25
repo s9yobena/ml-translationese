@@ -22,6 +22,7 @@ Spanish Modules:
 - syllable_ratio
 - average_pmi
 - mean_word_rank
+- contextual_function_words
 
 
 German Modules:
