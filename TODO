@@ -1,6 +1,12 @@
 Spanish mean_word_rank module:
-      - update word_ranks.py  with Spanish words.
+	- update word_ranks.py  with Spanish words.
 
 Spanish repetitions module:
-    - List of inflections of the verbs "to be" and "to have"
-      have to be updated for Spanish.
+	- List of inflections of the verbs "to be" and "to have"
+	have to be updated for Spanish.
+
+Spanish cohesive_markers module:
+	- Update list of cohesive markers with Spanish words.
+
+Spanish contractions module:
+	- Update list of contracted forms with Spanish counterparts
