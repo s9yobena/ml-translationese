@@ -28,7 +28,8 @@ class TaggedFile(Analysis):
         self._tagFile = __tagFile
         self._tokens = __tokens
         self._sentences = __sentences
-
+        
+    # Returns a list of tuples: [(token, tag, token), ...]
     def pos_tags(self):
         return self._tagFile
 
