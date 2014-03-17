@@ -14,8 +14,11 @@ from utils import is_proper_noun
 def quantify(analysis):
     """Quantify explicit naming."""
     proper_nouns = sum(1 for x in analysis.pos_tags() if is_proper_noun(x))
-    pronouns = sum(1 for x in analysis.tokens() if x in PRONOUNS_LIST)
-    
+    # Extract list of tokens from PRONOUNS_LIST
+    tokens_pl = []
+    tokens_pl = [x for x,y in PRONOUNS_LIST]
+    pronouns = sum(1 for x in analysis.tokens() if x in tokens_pl)
+
     if proper_nouns != 0:
         return { "explicit_naming": 3.0 * (float(pronouns) / proper_nouns) }
     else:
