@@ -62,8 +62,7 @@ def main():
         if analyserList[0].getModel(attributes[0]) == "1x1":
             print repr("File Name"), repr(attributes[0])
             for a in analyserList:
-                print repr(a.fileName), \
-                    repr("{0:.3f}".format(a.getResult(attributes[0])))
+                print a.fileName, a.getResult(attributes[0])
 
         elif analyserList[0].getModel(attributes[0]) == "1xN":
             for a in analyserList:
